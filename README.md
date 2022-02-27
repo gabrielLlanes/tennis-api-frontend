@@ -1,6 +1,6 @@
 # tennis-api-frontend
 
-The frontend React App which implements useful functionalities by calling the tennis API [https://github.com/gabrielLlanes/tennis-api-backend](https://github.com/gabrielLlanes/tennis-api-backend) has been hosted using firebase. You access the url here: [https://tennis-api-frontend.web.app](https://tennis-api-frontend.web.app).
+The frontend React App which implements useful functionalities by calling the tennis API (see my repo for the API at [https://github.com/gabrielLlanes/tennis-api-backend](https://github.com/gabrielLlanes/tennis-api-backend)) has been hosted using firebase. You access the url here: [https://tennis-api-frontend.web.app](https://tennis-api-frontend.web.app).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
