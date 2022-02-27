@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# tennis-api-frontend
 
 The frontend React App for the tennis API has been hosted using firebase. You access the url here: [https://tennis-api-frontend.web.app](https://tennis-api-frontend.web.app).
 
@@ -25,6 +25,8 @@ To see an individual player's career statistics, click the tab "Individual Playe
 ### Individual Player Activity
 
 To see an individual player's activity, click the tab "Individual Player Activity", enter the name of a player, and click "Get Player Activity". Then below, enter a year and click "Filter by Year".
+
+# Getting Started with Create React App
 
 ## Available Scripts
 
