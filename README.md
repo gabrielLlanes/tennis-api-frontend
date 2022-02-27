@@ -12,11 +12,11 @@ As of now, a user can do three things:
 2. Get individual player career statistics
 3. Get player activity by year
 
-I plan to add more functionalities.
+I plan to add more functionalities. As of now, there is only support for ATP players. I plan to incorporate the same functionalities for the WTA soon.
 
 ### Rivalries
 
-To see a H2H matchup, click on the tab "H2H Matches", enter the names of two players, and click "Get Rivalry Matches". As of now, there is only support for ATP players. I plan to incorporate the same functionalities for the WTA soon.
+To see a H2H matchup, click on the tab "H2H Matches", enter the names of two players, and click "Get Rivalry Matches".
 
 ### Individual Player Statistics
 
