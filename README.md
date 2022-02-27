@@ -12,7 +12,7 @@ As of now, a user can do three things:
 2. Get individual player career statistics
 3. Get player activity by year
 
-I plan to add more functionalities. As of now, there is only support for ATP players. I plan to incorporate the same functionalities for the WTA soon.
+I plan to add more functionalities. As of now, there is only support for ATP players. I plan to incorporate the same functionalities for the WTA very soon.
 
 ### Rivalries
 
