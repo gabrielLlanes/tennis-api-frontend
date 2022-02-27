@@ -1,6 +1,30 @@
 # Getting Started with Create React App
 
+The frontend React App for the tennis API has been hosted using firebase. You access the url here: [https://tennis-api-frontend.web.app](https://tennis-api-frontend.web.app).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Functions
+
+As of now, a user can do three things: 
+
+1. Get H2H matchup history
+2. Get individual player career statistics
+3. Get player activity by year
+
+I plan to add more functionalities.
+
+### Rivalries
+
+To see a H2H matchup, click on the tab "H2H Matches", enter the names of two players, and click "Get Rivalry Matches". As of now, there is only support for ATP players. I plan to incorporate the same functionalities for the WTA soon.
+
+### Individual Player Statistics
+
+To see an individual player's career statistics, click the tab "Individual Player Stats", enter the name of a player, and click "Get Player Stats".
+
+### Individual Player Activity
+
+To see an individual player's activity, click the tab "Individual Player Activity", enter the name of a player, and click "Get Player Activity". Then below, enter a year and click "Filter by Year".
 
 ## Available Scripts
 
