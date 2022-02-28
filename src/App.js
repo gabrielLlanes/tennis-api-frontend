@@ -1,6 +1,6 @@
 //import logo from './logo.svg';
 import './App.css';
-import { TextField, Button} from '@material-ui/core'
+import { TextField, Button, Tabs, Tab} from '@material-ui/core'
 import { useState, useEffect } from 'react';
 import TennisService from './services/tennisService';
 import Rivalry from './components/Rivalry';
@@ -19,6 +19,12 @@ function App() {
 
   const [activityPlayer, setActivityPlayer] = useState("");
   const [activity, setActivity] = useState([]);
+
+  const handleTabChange = (event, value) => {
+    setCurrFunction(value)
+    setShow({rivalry:false, indStats:false, indActivity:false});
+    setRivalry({p1:'', p2:''});setRivalryData([]);setStatsPlayer('');setStats({});setActivityPlayer('');setActivity([]);
+  }
 
   
   const handleRivalrySubmission = (event) => {
@@ -67,59 +73,53 @@ function App() {
 
   return (
     <div>
-      <h1 style={{cssText: "text-align: center"}}><a href="./">Tennis Statistics and Match Data</a></h1>
-      <div style={{textAlign:'center', padding:"20px"}}>
-        <div style={{display:"flex", justifyContent:"space-around", backgroundColor:"#E0E0E0", padding:"20px"}}>
-          <div style={{flex:"1", textAlign:"center"}}>
-          <Button variant="contained" type="button" onClick={() => {
-            setCurrFunction(1);
-            setShow({rivalry:false, indStats:false, indActivity:false});
-            setRivalry({p1:'', p2:''});setRivalryData([]);setStatsPlayer('');setStats({});setActivityPlayer('');setActivity([]);
-            }}>H2H Matches</Button>
-          </div>
-          <div style={{flex:"1", textAlign:"center"}}>
-          <Button variant="contained" type="button" onClick={() => {
-            setCurrFunction(2);
-            setShow({rivalry:false, indStats:false, indActivity:false})
-            setRivalry({p1:'', p2:''});setRivalryData([]);setStatsPlayer('');setStats({});setActivityPlayer('');setActivity([]);
-            }}>Individual Player Stats</Button>
-          </div>
-          <div style={{flex:"1", textAlign:"center"}}>
-          <Button variant="contained" type="button" onClick={() => {
-            setCurrFunction(3);
-            setShow({rivalry:false, indStats:false, indActivity:false})
-            setRivalry({p1:'', p2:''});setRivalryData([]);setStatsPlayer('');setStats({});setActivityPlayer('');setActivity([]);
-            }}>Individual Player Activity</Button>
-          </div>
-        </div>
+      <h1 style={{cssText: "text-align: center; font-weight:400"}}><a href="./">Tennis Statistics and Match Data</a></h1>
+
+      <div style={{backgroundColor:"whitesmoke", padding:"10px"}}>
+          <Tabs value={currFunction} onChange={handleTabChange}>
+            <Tab label="H2H Matches" value={1}></Tab>
+            <Tab label="Player Statistics" value={2}></Tab>
+            <Tab label="Player Activity" value={3}></Tab>
+          </Tabs>
       </div>
 
       {currFunction == 1 ? 
 
-      <div style={{textAlign:'center', padding:"20px", borderBottom:"3px solid gray"}}>
-        <form onSubmit={handleRivalrySubmission}>
-          <div style={{padding:"10px"}}> <span style={{paddingRight:"20px", display:"inline-flex"}}>
-            <TextField onChange={handleP1Change} label="Rival 1" InputLabelProps={{ shrink: true }} value={rivalry.p1}></TextField> 
-          </span>
-          <span style={{paddingLeft:"20px", display:"inline-flex"}}>
-            <TextField onChange={handleP2Change} label="Rival 2" InputLabelProps={{ shrink: true }} value={rivalry.p2}></TextField>
-          </span></div>
-          
-          <Button variant="contained" type="submit">Get Rivalry Matches</Button>
-        </form>
+      <div>
+        <div style={{textAlign:'left', padding:"20px", borderBottom:"3px solid gray"}}>
+          <form onSubmit={handleRivalrySubmission}>
+            <div style={{padding:"10px"}}> 
+            <span style={{paddingRight:"30px", display:"inline-flex"}}>
+              <TextField onChange={handleP1Change} label="Rival 1" InputLabelProps={{ shrink: true }} value={rivalry.p1}></TextField>
+            </span>
+            <span style={{paddingLeft:"30px", paddingRight:"30px", display:"inline-flex"}}>
+              <TextField onChange={handleP2Change} label="Rival 2" InputLabelProps={{ shrink: true }} value={rivalry.p2}></TextField>
+            </span> 
+            <span style={{paddingLeft:"30px", display:"inline-flex"}}><Button variant="contained" type="submit">Get Rivalry Matches</Button></span>
+            </div>
+          </form>
+        </div>
       </div> : currFunction == 2 ? 
 
-      <div style={{textAlign:'center', padding:"20px", borderBottom:"3px solid gray"}}>
+      <div style={{textAlign:'left', padding:"20px", borderBottom:"3px solid gray"}}>
         <form onSubmit={handleStatsPlayerSubmission}>
-        <div style={{padding:"10px"}}> <TextField onChange={handleStatsPlayerChange} label="Player" InputLabelProps={{ shrink: true }} value={statsPlayer}></TextField></div>
-        <Button variant="contained" type="submit">Get Player Stats</Button>
+        <div style={{padding:"10px"}}> 
+        <span style={{paddingRight:"30px", display:"inline-flex"}}>
+          <TextField onChange={handleStatsPlayerChange} label="Player" InputLabelProps={{ shrink: true }} value={statsPlayer}></TextField>
+        </span>
+        <span style={{paddingLeft:"30px", display:"inline-flex"}}><Button variant="contained" type="submit">Get Player Stats</Button></span>
+        </div>
         </form>
       </div> : currFunction == 3 ? 
 
-      <div style={{textAlign:'center', padding:"20px", borderBottom:"3px solid gray"}}>
+      <div style={{textAlign:'left', padding:"20px", borderBottom:"3px solid gray"}}>
         <form onSubmit={handleActivityPlayerSubmission}>
-        <div style={{padding:"10px"}}> <TextField onChange={handleActivityPlayerChange} label="Player" InputLabelProps={{ shrink: true }} value={activityPlayer}></TextField></div>
-        <Button variant="contained" type="submit">Get Player Activity</Button>
+        <div style={{padding:"10px"}}> 
+        <span style={{paddingRight:"30px", display:"inline-flex"}}>
+          <TextField onChange={handleActivityPlayerChange} label="Player" InputLabelProps={{ shrink: true }} value={activityPlayer}></TextField>
+        </span>
+        <span style={{display:"inline-flex", paddingLeft:"30px"}}><Button variant="contained" type="submit">Get Player Activity</Button></span>
+        </div>
         </form>
       </div> : "No selection"}
 

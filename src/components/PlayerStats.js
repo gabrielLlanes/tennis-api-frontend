@@ -11,49 +11,52 @@ const PlayerStats = ({playerStats}) => {
                     <TableHead>
                     </TableHead>
                     <TableBody>
-                    <TableRow>
-                    <TableCell>Career W-L</TableCell>
-                    <TableCell>{playerStats.careerWins.toString()} - {playerStats.careerLosses.toString()}</TableCell>
-                    </TableRow>
                         <TableRow>
-                            <TableCell>Total Aces</TableCell>
-                            <TableCell>{playerStats.totalAces}</TableCell>
+                            <TableCell style={{width:"50%"}}>Career W-L</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.careerWins.toString()} - {playerStats.careerLosses.toString()}</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>Double Faults</TableCell>
-                            <TableCell>{playerStats.totalDoubleFaults}</TableCell>
+                            <TableCell style={{fontWeight:600}} colSpan="2">Serve Statistics</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>1st Serve Made</TableCell>
-                            <TableCell>{playerStats.firstServeMadePct}%</TableCell>
+                            <TableCell style={{width:"50%"}}>Total Aces</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.totalAces}</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>1st Serve Points Won</TableCell>
-                            <TableCell>{playerStats.firstServeWonPct}%</TableCell>
+                            <TableCell style={{width:"50%"}}>Double Faults</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.totalDoubleFaults}</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>2nd Serve Points Won</TableCell>
-                            <TableCell>{playerStats.secondServeWonPct}%</TableCell>
+                            <TableCell style={{width:"50%"}}>1st Serve Made</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.firstServeMadePct}%</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>Break Points Faced</TableCell>
-                            <TableCell>{playerStats.breakPointsFaced}</TableCell>
+                            <TableCell style={{width:"50%"}}>1st Serve Points Won</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.firstServeWonPct}%</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>Break Points Saved</TableCell>
-                            <TableCell>{playerStats.breakPointsSavedPct}%</TableCell>
+                            <TableCell style={{width:"50%"}}>2nd Serve Points Won</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.secondServeWonPct}%</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>Service Games Played</TableCell>
-                            <TableCell>{playerStats.serviceGamesPlayed}</TableCell>
+                            <TableCell style={{width:"50%"}}>Break Points Faced</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.breakPointsFaced}</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>Service Games Won</TableCell>
-                            <TableCell>{playerStats.serviceGamesWonPct}%</TableCell>
+                            <TableCell style={{width:"50%"}}>Break Points Saved</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.breakPointsSavedPct}%</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>Service Points Won</TableCell>
-                            <TableCell>{playerStats.servicePointsWonPct}%</TableCell>
+                            <TableCell style={{width:"50%"}}>Service Games Played</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.serviceGamesPlayed}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell style={{width:"50%"}}>Service Games Won</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.serviceGamesWonPct}%</TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell style={{width:"50%"}}>Service Points Won</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.servicePointsWonPct}%</TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>
@@ -65,36 +68,39 @@ const PlayerStats = ({playerStats}) => {
                     </TableHead>
                     <TableBody>
                         <TableRow>
-                            <TableCell>1st Serve Return Points Won</TableCell>
-                            <TableCell>{playerStats.returnFirstServeWonPct.toString()}%</TableCell>
+                            <TableCell style={{fontWeight:600}} colSpan="2">Return Statistics</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>2nd Serve Return Points Won</TableCell>
-                            <TableCell>{playerStats.returnSecondServeWonPct}%</TableCell>
+                            <TableCell style={{width:"50%"}}>1st Serve Return Points Won</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.returnFirstServeWonPct.toString()}%</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>Break Points Opportunities</TableCell>
-                            <TableCell>{playerStats.breakPointOpportunities}</TableCell>
+                            <TableCell style={{width:"50%"}}>2nd Serve Return Points Won</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.returnSecondServeWonPct}%</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>Break Points Converted</TableCell>
-                            <TableCell>{playerStats.breakPointsConvertedPct}%</TableCell>
+                            <TableCell style={{width:"50%"}}>Break Points Opportunities</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.breakPointOpportunities}</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>Return Games Played</TableCell>
-                            <TableCell>{playerStats.returnGamesPlayed}</TableCell>
+                            <TableCell style={{width:"50%"}}>Break Points Converted</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.breakPointsConvertedPct}%</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>Return Games Won</TableCell>
-                            <TableCell>{playerStats.returnGamesWonPct}%</TableCell>
+                            <TableCell style={{width:"50%"}}>Return Games Played</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.returnGamesPlayed}</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>Return Points Won</TableCell>
-                            <TableCell>{playerStats.returnPointsWonPct}%</TableCell>
+                            <TableCell style={{width:"50%"}}>Return Games Won</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.returnGamesWonPct}%</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>Total Points Won</TableCell>
-                            <TableCell>{playerStats.totalPointsWonPct}%</TableCell>
+                            <TableCell style={{width:"50%"}}>Return Points Won</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.returnPointsWonPct}%</TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell style={{width:"50%"}}>Total Points Won</TableCell>
+                            <TableCell style={{width:"50%"}}>{playerStats.totalPointsWonPct}%</TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>

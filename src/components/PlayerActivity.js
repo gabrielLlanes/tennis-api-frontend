@@ -13,13 +13,13 @@ const ActivityTables = ({playerActivity, year}) => {
                     <div style={{paddingTop:'50px', paddingLeft:'10px', fontWeight:550}}>{tourney.tourneyDate}</div>
                     <div style={{padding:'5px 10px', fontWeight:550}}><span style={{borderBottom: "1px solid black"}}>{tourney.tourneyName} : {tourney.surface} Court</span></div>
                 </div>
-                <Table>
+                <Table size="medium">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Round</TableCell>
-                            <TableCell>Opponent</TableCell>
-                            <TableCell>Result</TableCell>
-                            <TableCell>Score</TableCell>
+                            <TableCell style={{width:"10%"}}>Round</TableCell>
+                            <TableCell style={{width:"40%"}}>Opponent</TableCell>
+                            <TableCell style={{width:"10%"}}>Result</TableCell>
+                            <TableCell style={{width:"40%"}}>Score</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -57,7 +57,7 @@ const PlayerActivity = ({playerActivity}) => {
         <>
         <div style={{textAlign:"center"}}>
             <form onSubmit={handleYearSubmission}>
-                <div>
+                <div style={{padding:"10px"}}>
                     <TextField label="Year" type="number" min="1995" max="2022" value={newYear} onChange={handleNewYearChange}></TextField>
                 </div>
                 <div style={{padding:"10px"}}><Button variant="contained" type="submit">Filter By Year</Button></div>
