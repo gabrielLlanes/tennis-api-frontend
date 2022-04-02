@@ -17,4 +17,8 @@ const getPlayerActivity = (playerName) => {
     return axios.get(`${baseUrl}/playeractivity`, {params: {['Player Name']:playerName}})
 }
 
-export default {getH2HData, getPlayerNames, getPlayerStats, getPlayerActivity}
+const getRankings = () => {
+    return axios.get(`${baseUrl}/rankings`)
+}
+
+export default {getH2HData, getPlayerNames, getPlayerStats, getPlayerActivity, getRankings}

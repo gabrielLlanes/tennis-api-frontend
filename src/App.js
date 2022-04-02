@@ -5,11 +5,12 @@ import { useState, useEffect } from 'react';
 import TennisService from './services/tennisService';
 import Rivalry from './components/Rivalry';
 import PlayerStats from './components/PlayerStats';
-import PlayerActivity from './components/PlayerActivity'; 
+import PlayerActivity from './components/PlayerActivity';
+import Rankings from './components/Rankings'; 
 
 function App() {
   const [currFunction, setCurrFunction] = useState(1);
-  const [show, setShow] = useState({rivalry:false, indStats:false, indActivity:false});
+  const [show, setShow] = useState({rivalry:false, indStats:false, indActivity:false, rankings:false});
 
   const [rivalry, setRivalry] = useState({p1:"", p2:""});
   const [rivalryData, setRivalryData] = useState([]);
@@ -20,10 +21,12 @@ function App() {
   const [activityPlayer, setActivityPlayer] = useState("");
   const [activity, setActivity] = useState([]);
 
+  const [rankings, setRankings] = useState([]);
+
   const handleTabChange = (event, value) => {
     setCurrFunction(value)
-    setShow({rivalry:false, indStats:false, indActivity:false});
-    setRivalry({p1:'', p2:''});setRivalryData([]);setStatsPlayer('');setStats({});setActivityPlayer('');setActivity([]);
+    setShow({rivalry:false, indStats:false, indActivity:false, rankings:false});
+    setRivalry({p1:'', p2:''});setRivalryData([]);setStatsPlayer('');setStats({});setActivityPlayer('');setActivity([]);setRankings([]);
   }
 
   
@@ -32,7 +35,7 @@ function App() {
     TennisService.getH2HData(rivalry).then(response => {
       console.log(response);
       setRivalryData(response.data);
-      setShow({rivalry:true, indStats:false, indActivity:false});
+      setShow({rivalry:true, indStats:false, indActivity:false, rankings:false});
     })
   }
 
@@ -41,7 +44,7 @@ function App() {
     TennisService.getPlayerStats(statsPlayer).then(response => {
       console.log(response);
       setStats(response.data);
-      setShow({rivalry:false, indStats:true, indActivity:false});
+      setShow({rivalry:false, indStats:true, indActivity:false, rankings:false});
     })
   }
 
@@ -50,9 +53,16 @@ function App() {
     TennisService.getPlayerActivity(activityPlayer).then(response => {
       console.log(response);
       setActivity(response.data);
-      setShow({rivalry:false, indStats:false, indActivity:true});
+      setShow({rivalry:false, indStats:false, indActivity:true, rankings:false});
     })
+  }
 
+  const handleRankingsSelection = (event) => {
+    event.preventDefault();
+    TennisService.getRankings().then(response => {
+      setRankings(response.data);
+      setShow({rivalry:false, indStats:false, indActivity:false, rankings:true})
+    })
   }
 
   const handleP1Change = (event) => {
@@ -80,6 +90,7 @@ function App() {
             <Tab label="H2H Matches" value={1}></Tab>
             <Tab label="Player Statistics" value={2}></Tab>
             <Tab label="Player Activity" value={3}></Tab>
+            <Tab label="ATP Rankings" value={4} onClick={handleRankingsSelection}></Tab>
           </Tabs>
       </div>
 
@@ -121,7 +132,8 @@ function App() {
         <span style={{display:"inline-flex", paddingLeft:"30px"}}><Button variant="contained" type="submit">Get Player Activity</Button></span>
         </div>
         </form>
-      </div> : "No selection"}
+      </div> : currFunction == 4 ?
+      <div> </div> : "no selection"};
 
       {show.rivalry ? 
 
@@ -134,7 +146,11 @@ function App() {
       <PlayerStats playerStats={stats}/>
        : show.indActivity ? 
 
-      <PlayerActivity playerActivity={activity}/> : 
+      <PlayerActivity playerActivity={activity}/>
+      
+      : show.rankings ? 
+
+      <Rankings rankings={rankings}/> :
       
       <div style={{textAlign:'center'}}>Waiting for Selection...</div>}
     </div>
