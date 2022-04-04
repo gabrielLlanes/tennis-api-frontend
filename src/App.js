@@ -7,10 +7,14 @@ import Rivalry from './components/Rivalry';
 import PlayerStats from './components/PlayerStats';
 import PlayerActivity from './components/PlayerActivity';
 import Rankings from './components/Rankings'; 
+import DailySummary from './components/DailySummary';
+import axios from 'axios';
+
+//const baseUrl = 'https://tennis-api-backend.herokuapp.com/api';
 
 function App() {
   const [currFunction, setCurrFunction] = useState(1);
-  const [show, setShow] = useState({rivalry:false, indStats:false, indActivity:false, rankings:false});
+  const [show, setShow] = useState({rivalry:false, indStats:false, indActivity:false, rankings:false, dailySummary:false});
 
   const [rivalry, setRivalry] = useState({p1:"", p2:""});
   const [rivalryData, setRivalryData] = useState([]);
@@ -23,9 +27,11 @@ function App() {
 
   const [rankings, setRankings] = useState([]);
 
+  const [dailyMatches, setDailyMatches] = useState([]);
+
   const handleTabChange = (event, value) => {
     setCurrFunction(value)
-    setShow({rivalry:false, indStats:false, indActivity:false, rankings:false});
+    setShow({rivalry:false, indStats:false, indActivity:false, rankings:false, dailySummary: false});
     setRivalry({p1:'', p2:''});setRivalryData([]);setStatsPlayer('');setStats({});setActivityPlayer('');setActivity([]);setRankings([]);
   }
 
@@ -35,7 +41,7 @@ function App() {
     TennisService.getH2HData(rivalry).then(response => {
       console.log(response);
       setRivalryData(response.data);
-      setShow({rivalry:true, indStats:false, indActivity:false, rankings:false});
+      setShow({rivalry:true, indStats:false, indActivity:false, rankings:false, dailySummary: false});
     })
   }
 
@@ -44,7 +50,7 @@ function App() {
     TennisService.getPlayerStats(statsPlayer).then(response => {
       console.log(response);
       setStats(response.data);
-      setShow({rivalry:false, indStats:true, indActivity:false, rankings:false});
+      setShow({rivalry:false, indStats:true, indActivity:false, rankings:false, dailySummary: false});
     })
   }
 
@@ -53,7 +59,7 @@ function App() {
     TennisService.getPlayerActivity(activityPlayer).then(response => {
       console.log(response);
       setActivity(response.data);
-      setShow({rivalry:false, indStats:false, indActivity:true, rankings:false});
+      setShow({rivalry:false, indStats:false, indActivity:true, rankings:false, dailySummary: false});
     })
   }
 
@@ -61,7 +67,7 @@ function App() {
     event.preventDefault();
     TennisService.getRankings().then(response => {
       setRankings(response.data);
-      setShow({rivalry:false, indStats:false, indActivity:false, rankings:true})
+      setShow({rivalry:false, indStats:false, indActivity:false, rankings:true, dailySummary: false});
     })
   }
 
@@ -81,6 +87,17 @@ function App() {
     setActivityPlayer(event.target.value);
   }
 
+  /* temp stuff */
+
+  const handleDailySummarySelection = () => {
+    TennisService.getDailySummary().then(response => {
+      console.log("in app");
+      console.log(response.data);
+      setDailyMatches(response.data);
+      setShow({rivalry:false, indStats:false, indActivity:false, rankings:false, dailySummary: true});
+    });
+  }
+
   return (
     <div>
       <h1 style={{cssText: "text-align: center; font-weight:400"}}><a href="./">Tennis Statistics and Match Data</a></h1>
@@ -91,6 +108,7 @@ function App() {
             <Tab label="Player Statistics" value={2}></Tab>
             <Tab label="Player Activity" value={3}></Tab>
             <Tab label="ATP Rankings" value={4} onClick={handleRankingsSelection}></Tab>
+            <Tab label="Daily Summary" value={5} onClick={handleDailySummarySelection}></Tab>
           </Tabs>
       </div>
 
@@ -132,8 +150,8 @@ function App() {
         <span style={{display:"inline-flex", paddingLeft:"30px"}}><Button variant="contained" type="submit">Get Player Activity</Button></span>
         </div>
         </form>
-      </div> : currFunction == 4 ?
-      <div> </div> : "no selection"};
+      </div> : (currFunction == 4 || currFunction == 5) ?
+      <div> </div> : "no selection"}
 
       {show.rivalry ? 
 
@@ -151,8 +169,14 @@ function App() {
       : show.rankings ? 
 
       <Rankings rankings={rankings}/> :
-      
-      <div style={{textAlign:'center'}}>Waiting for Selection...</div>}
+
+      show.dailySummary ? 
+
+      <DailySummary dailyMatches={dailyMatches}/> :
+
+      <div>
+        <div style={{textAlign:'center'}}>Waiting for Selection...</div>
+      </div>}
     </div>
   );
 }
