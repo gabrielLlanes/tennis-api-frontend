@@ -22,6 +22,7 @@ const DailySummary = ({dailyMatches}) => {
             tourneyMatches.push(
                 <TableRow key = {currMatch.homePlayer + currMatch.awayPlayer}>
                 <TableCell>{tourneyMatches.length+1}</TableCell>
+                <TableCell>{currMatch.round}</TableCell>
                 <TableCell>{currMatch.homePlayer}</TableCell>
                 <TableCell>{currMatch.awayPlayer}</TableCell>
                 <TableCell>{currMatch.winnerName}</TableCell>
@@ -38,11 +39,12 @@ const DailySummary = ({dailyMatches}) => {
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell style={{width:'10%'}}>Match</TableCell>
-                            <TableCell style={{width:"22%"}}>Player 1</TableCell>
-                            <TableCell style={{width:"23%"}}>Player 2</TableCell>
-                            <TableCell style={{width:"22%"}}>Winner</TableCell>
-                            <TableCell style={{width:"23%"}}>Score</TableCell>
+                            <TableCell style={{width:'5%'}}>Match</TableCell>
+                            <TableCell style={{width:'19%'}}>Round</TableCell>
+                            <TableCell style={{width:"19%"}}>Player 1</TableCell>
+                            <TableCell style={{width:"19%"}}>Player 2</TableCell>
+                            <TableCell style={{width:"19%"}}>Winner</TableCell>
+                            <TableCell style={{width:"19%"}}>Score</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
