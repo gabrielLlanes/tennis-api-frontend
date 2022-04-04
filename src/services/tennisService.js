@@ -71,7 +71,7 @@ const getDailySummary = () => {
                   score = score.slice(0, score.length - 2); 
                 }
                 console.log(d);
-                dailymatches.push({matchDate:d, tourneyName, homeID:y.home_id, awayID:y.away_id, winnerID:y.result.winner_id,score, round: y.round_name});
+                dailymatches.push({matchDate:d, tourneyName, homeID:y.home_id, awayID:y.away_id, winnerID:y.result.winner_id, score, round:y.round_name});
               }
             }
             console.log(dailymatches);
