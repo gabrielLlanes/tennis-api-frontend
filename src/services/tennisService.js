@@ -36,7 +36,7 @@ const getDailySummary = () => {
           'X-RapidAPI-Key': '90e3180e4emshea2131884b575efp1a69b0jsnca65819f7469'
         }
       };
-      if(response.data.length == 0) {
+      if(!response.data.recorded) {
         const optionsInsertPlayers = {
           method: 'GET',
           url: 'https://tennis-live-data.p.rapidapi.com/players/ATP',

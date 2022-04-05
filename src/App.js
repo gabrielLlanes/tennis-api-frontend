@@ -92,8 +92,8 @@ function App() {
   const handleDailySummarySelection = () => {
     TennisService.getDailySummary().then(response => {
       console.log("in app");
-      console.log(response.data);
-      setDailyMatches(response.data);
+      console.log(response);
+      setDailyMatches(response.data.matches);
       setShow({rivalry:false, indStats:false, indActivity:false, rankings:false, dailySummary: true});
     });
   }
