@@ -2,6 +2,13 @@ import React, { useEffect } from "react";
 import { Table, TableHead, TableRow, TableCell, TableBody } from "@material-ui/core";
 
 const DailySummary = ({dailyMatches}) => {
+    if(dailyMatches.length == 0) {
+        return (
+            <div>
+                No match results for previous day.
+            </div>
+        )
+    }
     useEffect(() => {
         console.log(dailyMatches);
     },[])
