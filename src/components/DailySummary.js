@@ -2,16 +2,19 @@ import React, { useEffect } from "react";
 import { Table, TableHead, TableRow, TableCell, TableBody } from "@material-ui/core";
 
 const DailySummary = ({dailyMatches}) => {
+
+    useEffect(() => {
+        console.log(dailyMatches);
+    },[])
+
     if(dailyMatches.length == 0) {
         return (
-            <div>
+            <div style={{padding:15, textAlign:"center", fontSize: "125%"}}>
                 No match results for previous day.
             </div>
         )
     }
-    useEffect(() => {
-        console.log(dailyMatches);
-    },[])
+
     let tourneys = [];
     let dailyTables = [];
     for(let i = 0; i < dailyMatches.length; i++) {
