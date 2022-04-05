@@ -6,13 +6,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Functions
 
-As of now, a user can do three things: 
+As of now, a user can do five things: 
 
 1. Get H2H matchup history
 2. Get individual player career statistics
 3. Get player activity by year
+4. Get ATP rankings
+5. Get ATP tour level match results of the previous day.
 
-I plan to add more functionalities. As of now, there is only support for ATP players. I plan to incorporate the same functionalities for the WTA very soon.
+I plan to add more functionalities. As of now, there is only support for ATP players. I will incorporate the same functionalities for the WTA soon.
 
 ### Rivalries
 
@@ -25,6 +27,14 @@ To see an individual player's career statistics, click the tab "Individual Playe
 ### Individual Player Activity
 
 To see an individual player's activity, click the tab "Individual Player Activity", enter the name of a player, and click "Get Player Activity". Then below, enter a year and click "Filter by Year".
+
+### ATP Rankings
+
+To see current ATP rankings, click on the "ATP Rankings" tab.
+
+### Daily Summary
+
+To see ATP tour level match results of the previous day, click on the "Daily Summary" tab.
 
 # Getting Started with Create React App
 
