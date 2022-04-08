@@ -1,5 +1,6 @@
 import axios from "axios";
-const baseUrl = 'https://tennis-api-backend.herokuapp.com/api';
+const baseUrl = 'https://tennisapibackend.herokuapp.com/api';
+//const baseUrl = 'http://localhost:8080/api';
 
 const getH2HData = (rivalry) => {
     return axios.post(`${baseUrl}/h2hmatches`, rivalry)
