@@ -1,6 +1,5 @@
 import axios from "axios";
-const baseUrl = 'https://tennisapibackend.herokuapp.com/api';
-//const baseUrl = 'http://localhost:8080/api';
+const baseUrl = process.env.REACT_APP_API_ENDPOINT_BASE;
 
 const getH2HData = (rivalry) => {
     return axios.post(`${baseUrl}/h2hmatches`, rivalry)
@@ -34,7 +33,7 @@ const getDailySummary = () => {
         url: `https://tennis-live-data.p.rapidapi.com/matches-by-date/${d}`,
         headers: {
           'X-RapidAPI-Host': 'tennis-live-data.p.rapidapi.com',
-          'X-RapidAPI-Key': '90e3180e4emshea2131884b575efp1a69b0jsnca65819f7469'
+          'X-RapidAPI-Key': process.env.REACT_APP_TENNIS_LIVE_KEY
         }
       };
       if(!response.data.recorded) {
@@ -43,7 +42,7 @@ const getDailySummary = () => {
           url: 'https://tennis-live-data.p.rapidapi.com/players/ATP',
           headers: {
             'X-RapidAPI-Host': 'tennis-live-data.p.rapidapi.com',
-            'X-RapidAPI-Key': '90e3180e4emshea2131884b575efp1a69b0jsnca65819f7469'
+            'X-RapidAPI-Key': process.env.REACT_APP_TENNIS_LIVE_KEY
           }
         };
         return axios.request(optionsInsertPlayers).then(response => {

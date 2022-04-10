@@ -10,8 +10,6 @@ import Rankings from './components/Rankings';
 import DailySummary from './components/DailySummary';
 import axios from 'axios';
 
-//const baseUrl = 'https://tennis-api-backend.herokuapp.com/api';
-
 function App() {
   const [currFunction, setCurrFunction] = useState(1);
   const [show, setShow] = useState({rivalry:false, indStats:false, indActivity:false, rankings:false, dailySummary:false});
