@@ -41,14 +41,6 @@ const ActivityTables = ({playerActivity, year}) => {
 
 const PlayerActivity = ({playerActivity}) => {
 
-    if(playerActivity.length == 0) {
-        return (
-            <div style ={{padding: 20, textAlign: "center"}}>
-                No data! Please make another selection.
-            </div>
-        )
-    }
-
     const [year, setYear] = useState(2022);
  //   const [currentActivityTables, setCurrentActivityTables] = useState(<ActivityTables playerActivity={playerActivity}/>)
     const [newYear, setNewYear] = useState(2022);
@@ -60,6 +52,14 @@ const PlayerActivity = ({playerActivity}) => {
     const handleYearSubmission = (event) => {
         event.preventDefault();
         setYear(newYear);
+    }
+
+    if(playerActivity.length == 0) {
+        return (
+            <div style ={{padding: 20, textAlign: "center", fontSize: "130%"}}>
+                No data! Please make another selection.
+            </div>
+        )
     }
     
     return (

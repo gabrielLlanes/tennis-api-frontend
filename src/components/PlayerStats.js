@@ -5,7 +5,7 @@ const PlayerStats = ({playerStats}) => {
 
     if(playerStats.careerWins == -1) {
         return (
-            <div style ={{padding: 20, textAlign: "center"}}>
+            <div style ={{padding: 20, textAlign: "center", fontSize: "130%"}}>
                 No data! Please make another selection.
             </div>
         )
