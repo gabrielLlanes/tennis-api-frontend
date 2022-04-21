@@ -2,6 +2,15 @@ import React from "react";
 import { Table, TableHead, TableBody, TableCell, TableRow, Tab } from "@material-ui/core";
 
 const PlayerStats = ({playerStats}) => {
+
+    if(playerStats.careerWins == -1) {
+        return (
+            <div style ={{padding: 20, textAlign: "center"}}>
+                No data! Please make another selection.
+            </div>
+        )
+    }
+
     return (
         <>
 

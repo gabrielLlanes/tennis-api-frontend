@@ -25,6 +25,14 @@ const buildRows = (rivalryData) => {
 
 const Rivalry = ({rivalryData}) => {
 
+    if(rivalryData.length == 0) {
+        return (
+        <div style ={{padding: 20, textAlign: "center"}}>
+            No data! Please make another selection.
+        </div>
+        )
+    }
+
     return (
         <div>
             <Table style={{width:"1500px"}}>
