@@ -101,7 +101,7 @@ function App() {
       <h1 style={{cssText: "text-align: center; font-weight:400"}}><a href="./">Tennis Statistics and Match Data</a></h1>
 
       <div style={{backgroundColor:"whitesmoke", padding:"10px"}}>
-          <Tabs value={currFunction} onChange={handleTabChange}>
+          <Tabs value={currFunction} onChange={handleTabChange} variant="scrollable" scrollButtons="auto" allowScrollButtonsMobile>
             <Tab label="H2H Matches" value={1}></Tab>
             <Tab label="Player Statistics" value={2}></Tab>
             <Tab label="Player Activity" value={3}></Tab>
